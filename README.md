@@ -65,3 +65,27 @@
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/yourhandle)
 [![Portfolio](https://img.shields.io/badge/Portfolio-%23000000.svg?style=for-the-badge&logo=firefox&logoColor=#FF7139)](https://yourportfolio.com)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:youremail@example.com)
+
+## 🎯 Skills Breakdown
+
+```mermaid
+pie
+    title Most Used Technologies
+    "JavaScript/TypeScript" : 35
+    "Python" : 30
+    "HTML/CSS" : 20
+    "Databases" : 10
+    "DevOps" : 5
+## 📈 Weekly Development Breakdown
+```mermaid
+gantt
+    title Weekly Development Breakdown
+    dateFormat  HH:mm
+    section Monday
+    Frontend Work      : 08:00, 4h
+    Backend Work       : 13:00, 3h
+    section Tuesday
+    Code Reviews      : 09:00, 2h
+    Feature Development : 11:00, 5h
+
+
