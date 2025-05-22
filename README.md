@@ -48,7 +48,7 @@
 
 ### Full Stack Applications
 [![Revival Platform](https://github-readme-stats.vercel.app/api/pin/?username=emillio-dev&repo=revival&theme=dark)](https://github.com/memessingabout/jungle-rider-tracker/tree/main)
-[![E-Commerce Microservices](https://github-readme-stats.vercel.app/api/pin/?username=emillio-dev&repo=ecommerce-micro&theme=dark)](https://github.com/emillio-dev/ecommerce-micro)
+[![E-Commerce Microservices](https://github-readme-stats.vercel.app/api/pin/?username=memessingabout&repo=Learning&theme=dark)](https://github.com/memessingabout/Learning)
 
 ### Open Source Contributions
 [![Django REST Framework](https://github-readme-stats.vercel.app/api/pin/?username=encode&repo=django-rest-framework&theme=dark)](https://github.com/encode/django-rest-framework)
