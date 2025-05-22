@@ -47,7 +47,7 @@
 ## 🏆 Featured Projects
 
 ### Full Stack Applications
-[![Revival Platform](https://github-readme-stats.vercel.app/api/pin/?username=emillio-dev&repo=revival&theme=dark)](https://github.com/emillio-dev/revival)
+[![Revival Platform](https://github-readme-stats.vercel.app/api/pin/?username=emillio-dev&repo=revival&theme=dark)](https://github.com/memessingabout/jungle-rider-tracker/tree/main)
 [![E-Commerce Microservices](https://github-readme-stats.vercel.app/api/pin/?username=emillio-dev&repo=ecommerce-micro&theme=dark)](https://github.com/emillio-dev/ecommerce-micro)
 
 ### Open Source Contributions
