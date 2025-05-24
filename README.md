@@ -1,4 +1,5 @@
-# 👨‍💻 Emillio
+# 👨‍💻 Jambo
+
 **Full Stack Developer** | Python & JavaScript Specialist | CS50x Graduate
 
 [![Website](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://emillio.dev)
