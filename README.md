@@ -1,47 +1,37 @@
-# 👋 Hello, I'm Emillio 
+# 👋 Hello
 
-[![Emillio's GitHub stats](https://github-readme-stats.vercel.app/api?username=memessingabout&show_icons=true&theme=radical)](https://github.com/memessingabout)
+I'm **Emillio**, a programming enthusiast currently building my computer science foundation through Harvard University's:
+- **CS50: Introduction to Computer Science**
+- **CS50: Introduction to Cybersecurity**
 
-**Aspiring Full Stack Developer | Mobile Development Enthusiast | Cyber Security Advocate**
+My technical interests span full-stack development, mobile/desktop applications, AI/ML, and cybersecurity.
 
-I'm passionate about building practical solutions while expanding my development skills. Currently working on a [Budget Tool](https://github.com/memessingabout/budget) and exploring cross-platform mobile development with security best practices in mind.
+## 🔍 Current Focus
 
-## 🛠️ Technologies & Tools
+- **Core Learning**:
+  - Harvard CS50: Computer Science fundamentals (C, Python, algorithms, data structures)
+  - Harvard CS50: Cybersecurity (encryption, web security, ethical hacking concepts)
 
-### Core Stack
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![React](https://img.shields.io/badge/-React-61DAFB?style=flat&logo=react&logoColor=black)
-![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat&logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/-Express-000000?style=flat&logo=express&logoColor=white)
+- **Development Interests**:
+  - Full-stack web development
+  - Cross-platform application development
+  - Security-first programming practices
+  - AI/ML fundamentals
 
-### Mobile Development (Learning)
-![React Native](https://img.shields.io/badge/-React_Native-61DAFB?style=flat&logo=react&logoColor=black)
-![Flutter](https://img.shields.io/badge/-Flutter-02569B?style=flat&logo=flutter&logoColor=white)
+## 🛠️ Technical Exposure
 
-### Cyber Security Interests
-![OWASP](https://img.shields.io/badge/-OWASP-000000?style=flat&logo=owasp&logoColor=white)
-![Cryptography](https://img.shields.io/badge/-Cryptography-2C3E50?style=flat)
+### Languages & Environments
+![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![C](https://img.shields.io/badge/-C-A8B9CC?style=flat-square&logo=c&logoColor=black)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![SQL](https://img.shields.io/badge/-SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
 
-## 🌱 Current Focus
-- Enhancing my [Budget Tool Project](https://github.com/memessingabout/budget)
-- Learning cross-platform mobile development
-- Studying application security principles
-- Exploring backend architectures
+### Focus Areas
+![Computer Science](https://img.shields.io/badge/-Computer_Science-0175C2?style=flat-square)
+![Cybersecurity](https://img.shields.io/badge/-Cybersecurity-2E3440?style=flat-square)
+![Web Development](https://img.shields.io/badge/-Web_Development-FF6F00?style=flat-square)
 
-## 🚀 Featured Project
-[![Budget Tool Repo](https://github-readme-stats.vercel.app/api/pin/?username=memessingabout&repo=budget&theme=radical)](https://github.com/memessingabout/budget)
+## 📊 GitHub Activity
 
-## 📚 Learning Resources
-- Mobile Development: React Native, Flutter
-- Security: OWASP Top 10, Secure Coding Practices
-- Full Stack: Advanced React Patterns, Microservices
-
-## 💡 Development Philosophy
-> "Build practical solutions, learn security-first principles, and create accessible cross-platform applications."
-
-## 📫 Let's Connect
-[![Visitors](https://visitor-badge.laobi.icu/badge?page_id=memessingabout.memessingabout)](https://github.com/memessingabout)
-
----
-
-⭐️ From [Emillio](https://github.com/memessingabout)
+[![Emillio's GitHub stats](https://github-readme-stats.vercel.app/api?username=memessingabout&show_icons=true&theme=default&hide_title=true&hide=stars,issues&count_private=true)](https://github.com/memessingabout)
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=memessingabout&layout=compact&theme=default&hide_title=true&hide=html,css)](https://github.com/memessingabout)
