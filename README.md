@@ -1,4 +1,5 @@
 # 👋 Hello
+## GitHub Stats
 
 I'm **Emillio**, a programming enthusiast currently building my computer science foundation through Harvard University's:
 - **CS50: Introduction to Computer Science**
@@ -33,5 +34,5 @@ My technical interests span full-stack development, mobile/desktop applications,
 
 ## 📊 GitHub Activity
 
-[![Emillio's GitHub stats](https://github-readme-stats.vercel.app/api?username=memessingabout&show_icons=true&theme=default&hide_title=true&hide=stars,issues&count_private=true)](https://github.com/memessingabout)
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=memessingabout&layout=compact&theme=default&hide_title=true&hide=html,css)](https://github.com/memessingabout)
+![Your GitHub stats](https://github-readme-stats.vercel.app/api?username=memessingabout&show_icons=true)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=memessingabout&layout=compact)
