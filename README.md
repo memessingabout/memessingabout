@@ -35,4 +35,5 @@ My technical interests span full-stack development, mobile/desktop applications,
 ## 📊 GitHub Activity
 
 ![Your GitHub stats](https://github-readme-stats.vercel.app/api?username=memessingabout&show_icons=true)
+
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=memessingabout&layout=compact)
