@@ -1,6 +1,19 @@
-Linux Basics for Hackers - Quick Reference Guide
-(Based on Chapter 1: Getting Started with the Basics)
+# Linux Basics for Hackers - Reference Guide
+**Hacking is the most important skill set of the 21st century!**
 
+- **Ethical hacking** is the practice of attempting to infiltrate and exploit a system in order
+to find out its weaknesses and better secure it.
+- A **penetration test** is essentially a legal, commissioned hack to demonstrate the
+vulnerability of a firm’s network and systems.
+
+#### Why Linux?
+- Open source: The source code is available to change and manipulate as needed.
+- Transparent: All working parts are visible and can be manipulated.
+- Granular control: Everything can be controlled by the terminal at the most macro level. Scripting is simple and effective
+- Most hacking tools are written for linux.
+- The future belongs to linux/unix.
+
+### Chapter 1: Getting started with the basics
 1. Key Linux Concepts
 Terminology
 Binaries: Executable files (e.g., /usr/bin/ps, /usr/sbin/aircrack-ng).
@@ -73,6 +86,25 @@ Pro Tips
 Never run as root unnecessarily (security risk!).
 rm -r is dangerous—double-check before deleting!
 Kali’s strength: Pre-installed tools (e.g., nmap, aircrack-ng).
+
+### Chapter 2: Text manipulation
+### Chapter 3: Analyzing and managing networks
+### Chapter 4: Adding and removing software
+### Chapter 5: Controlling file and directory permissions
+### Chapter 6: Process management
+### Chapter 7: Managing user environment variables
+### Chapter 8: Bash scripting
+### Chapter 9: Compressing and archiving
+### Chapter 10: Filesystem and storage device management
+### Chapter 11: The logging system
+### Chapter 12: Using and abusing services
+### Chapter 13: Becoming secure and anonymous
+### Chapter 14: Understanding and inspecting wireless networks
+### Chapter 15: Managing the linux kernel and loadable kernel modules
+### Chapter 16: Automating tasks with job scheduling
+### Chapter 17: Python scripting basics for hackers
+
+
 
 Linux Text Manipulation - Quick Reference Guide
 (Based on Chapter 2: Text Manipulation)
