@@ -13,81 +13,101 @@ vulnerability of a firm’s network and systems.
 - Most hacking tools are written for linux.
 - The future belongs to linux/unix.
 
-### Chapter 1: Getting started with the basics
-1. Key Linux Concepts
-Terminology
-Binaries: Executable files (e.g., /usr/bin/ps, /usr/sbin/aircrack-ng).
-Case Sensitivity: Desktop ≠ desktop ≠ DeskTop.
-Directory: Equivalent to a "folder" in Windows.
-Home Directory: /home/username (default save location for user files).
-root: Superuser/admin account (default Kali login: root / toor).
-Script: A file containing commands (bash, Python, etc.).
-Shell: Command interpreter (default: bash).
-Terminal: Command-line interface (CLI).
+## Chapter 1: Getting started with the basics
+#### Introductory terms and concepts
+- **Binaries**: Executable files, reside in the /usr/bin or usr/sbin directories, include utilities such as *ps, cat, ls and cd*, and applications.
+- **Case Sensitivity**: Desktop ≠ desktop ≠ DeskTop.
+- **Directory**: Provides files organisation in a hierarchial manner.
+- **Home Directory**: */home/username* (default save location for user files).
+- **Kali Linux**: Purpose-built for penetration testing (pre-loaded with hacking tools).
+- **root**: Superuser/admin account.
+- **Script**: A file containing commands (bash, Python, etc.).
+- **Shell**: Command interpreter. Bash *Bourne-again shell*, C shell and Z shell.
+- **Terminal**: Command-line interface (CLI).
 
-Kali Linux
-Purpose-built for penetration testing (pre-loaded with hacking tools).
-Default shell: bash.
+#### The linux filesystem
+At the very top of the filesystem structure is /, which is often referred to as the root of the filesystem.
+![image 7TZC82](https://github.com/user-attachments/assets/a255003f-5e0b-476f-b35e-ce236f5a3ae6)
+**/root** The home directory of the all-powerful root user
 
-2. Basic Commands
-Navigation
-Command	Description
-pwd	Print current directory
-cd /path	Change directory
-cd ..	Move up one level
-cd /	Jump to root directory
-ls -la	List files (including hidden)
-File/Directory Operations
-Command	Description
-mkdir dir	Create directory
-touch file	Create empty file
-cat > file	Create file + add text (CTRL+D to save)
-cat file	View file content
-cp file1 file2	Copy file
-mv file1 file2	Move/rename file
-rm file	Delete file
-rm -r dir	Delete directory (recursive)
-System Info
-Command	Description
-whoami	Show current user
-passwd	Change password
+**/etc** Generally contains the Linux configuration files
 
-3. Searching & Help
-Finding Files
-Command	Description
-locate keyword	Search entire filesystem (uses daily-updated DB)
-whereis binary	Find binaries, sources, and man pages
-which command	Show path of executable (from PATH variable)
-find / -type f -name "file"	Advanced search (start dir, file type, name)
-Help & Manuals
-Command	Description
-command --help	Quick help
-man command	Full manual (press q to quit)
+**/home** The user’s home directory
 
-4. Wildcards & Filters
-Wildcards
-* = Match any characters (e.g., apache2.*).
-? = Match a single character (e.g., ?at = cat, hat).
-[ ] = Match specific characters (e.g., [cb]at = cat, bat).
-Filtering with grep
-bash
-ps aux | grep apache2  # Find running Apache processes  
+**/mnt** Where other filesystems are attached or mounted to the filesystem
 
-5. Exercises (Practice These!)
-Explore directories (/, /etc, /home) using ls and cd.
-Use whoami to check your current user.
-Find password wordlists:
-bash
-locate wordlist  
-Create a file with cat > file.txt, then append text with cat >> file.txt.
-Make a directory (mkdir hacker), create a file (touch hacked.txt), copy it (cp hacked.txt /root/secret.txt).
+**/media** Where CDs and USB devices are usually attached or mounted to the filesystem
 
-Pro Tips
-Never run as root unnecessarily (security risk!).
-rm -r is dangerous—double-check before deleting!
-Kali’s strength: Pre-installed tools (e.g., nmap, aircrack-ng).
+**/bin** Where application binaries reside
 
-### Chapter 2: Text manipulation
+**/lib** Where you’ll find libraries
+
+#### Basic Commands
+pwd	**Print working directory**
+
+whoami **Show current user**
+
+cd /path	**Change directory**
+
+cd ..	**Move up one level**
+
+cd /	**Jump to root directory**
+
+ls **List**
+
+ls -la	**Long listing including hidden**
+
+#### Getting help
+--help, -h, -?
+
+man **Manual pages**
+
+#### Finding stuff
+locate **Search entire filesystem, uses a database that is usually only updated once a day**
+
+whereis **finding binary files, source and man pages**
+
+which **returns the location of the binaries in the *PATH* variable**
+
+find *find directory options expression* **capable of beginning your search in any designated directory and looking for a number of different parameters, including, of course, the filename but also the date of creation or modification, the owner, the group, permissions, and the size**
+
+#### Wildcards 
+- * Match any characters
+- . ,
+- ? match a single character
+- [] Match specific characters
+
+grep **Filtering via piping**
+
+##### File/Directory Operations
+cat **concatenate -display file content**
+
+cat > file	**Create file + add text (CTRL+D to save)**
+
+cat >> file **Appending to a file**
+
+touch **Change file details, create new empty file**
+
+mkdir dir	**Make directory**
+
+cp file1 file2	**Copy file**
+
+mv file1 file2	**Move/rename file**
+
+rm file	**Delete file**
+
+rmdir **Delete directory**
+
+rm -r dir	**Delete directory recursively**
+
+passwd	**Change password**
+
+#### Pro Tips
+- Never run as root unnecessarily (security risk!).
+- rm -r is dangerous—double-check before deleting!
+- Kali’s strength: Pre-installed tools (e.g., nmap, aircrack-ng).
+
+## Chapter 2: Text manipulation
 ### Chapter 3: Analyzing and managing networks
 ### Chapter 4: Adding and removing software
 ### Chapter 5: Controlling file and directory permissions
