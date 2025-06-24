@@ -157,6 +157,8 @@ Exercises
 
 ### Pro Tip
 - Use man command (e.g., man grep) to explore advanced options for each tool.
+  
+---
 
 ## Chapter 3: Analyzing and managing networks
 ## Chapter 4: Adding and removing software
