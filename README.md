@@ -4,6 +4,7 @@
 I'm **Emillio**, a programming enthusiast currently building my computer science foundation through Harvard University's:
 - **CS50: Introduction to Computer Science**
 - **CS50: Introduction to Cybersecurity**
+- **CS50: Introduction to Python**
 
 My technical interests span full-stack development, mobile/desktop applications, AI/ML, and cybersecurity.
 
