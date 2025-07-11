@@ -1,5 +1,3 @@
----
-
 # AUTOMATE THE BORING STUFF WITH PYTHON  
 *By Al Sweigart*
 
