@@ -1,5 +1,4 @@
 # 👋 Hello
-## GitHub Stats
 
 I'm **Emillio**, a programming enthusiast currently building my computer science foundation through Harvard University's:
 - **CS50: Introduction to Computer Science**
