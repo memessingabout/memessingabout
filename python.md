@@ -3,8 +3,8 @@
 
 | Phase | Topics | Duration |
 |_______|________|__________|
-| Phase 1: Foundations |  |(Weeks 1–4, 20 days)
-- **Goal**: Master Python syntax, basic constructs, and problem-solving.
+| Phase 1: Foundations | - History  | Weeks 1–4, 20 days |
+
 - Topics: History, setup, variables, data types, operators, control flow, loops, functions, basic data structures (lists, tuples, dictionaries, sets), and file I/O.
 - **Test 1**: Week 2, Saturday – Basics (syntax, control flow, functions).
 - **Test 2**: Week 4, Saturday – Data structures and file handling.
