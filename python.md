@@ -101,14 +101,7 @@ In Python, **variables** are names that reference data stored in memory. Python 
 
 ---
 
-### Day 5: Control Flow in Python
-
-#### Objective
-Learn how to control the flow of a Python program using conditional statements (`if`, `elif`, `else`) and loops (`for`, `while`). Building on Day 4’s operators and Day 3’s variables, control flow allows you to make decisions and repeat actions, key skills for solving complex problems and writing dynamic programs in professional settings.
-
----
-
-#### Lecture (10 minutes)
+### Control Flow
 **Control flow** determines the order in which a program’s statements are executed. Python provides two main mechanisms:
 1. **Conditional Statements**: Execute code based on conditions.
    - `if`, `elif`, `else`: Test conditions using boolean expressions (from Day 4’s operators).
