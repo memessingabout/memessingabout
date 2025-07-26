@@ -3,34 +3,23 @@
 
 | Phase | Topics | Duration |
 |_______|________|__________|
-| Phase 1: Foundations | - History  | Weeks 1–4, 20 days |
+| Phase 1: Foundations | - History, setup, variables, data types, operators, control flow, loops, functions, basic data structures (lists, tuples, dictionaries, sets), and file I/O. | Weeks 1–4, 20 days |
+| Phase 2: Intermediate Concepts | Modules, packages, error handling, advanced data structures (stacks, queues, linked lists), regular expressions, and working with libraries (e.g., math, datetime).  | Weeks 5–8, 20 days |
+| Phase 3: Object-Oriented Programming (OOP) & Design | Classes, objects, inheritance, polymorphism, encapsulation, design patterns, and basic testing (unit tests). | Weeks 9–12, 20 days |
+| Phase 4: Advanced Topics | Decorators, generators, iterators, context managers, concurrency (threading, multiprocessing, asyncio), web scraping, APIs, databases (SQL with SQLite), and data analysis (pandas, NumPy). | Weeks 13–18, 30 days |
+| Phase 5: Professional Development & Projects | Building a portfolio project (e.g., web app, data pipeline, or automation script), version control (Git), deployment, CI/CD basics, Python frameworks (Flask/Django), and career guidance (software engineering, data science, DevOps)  | Weeks 19–24, 30 days |
 
-- Topics: History, setup, variables, data types, operators, control flow, loops, functions, basic data structures (lists, tuples, dictionaries, sets), and file I/O.
+
+#### Tests
 - **Test 1**: Week 2, Saturday – Basics (syntax, control flow, functions).
 - **Test 2**: Week 4, Saturday – Data structures and file handling.
-
-#### Phase 2: Intermediate Concepts (Weeks 5–8, 20 days)
-- **Goal**: Build proficiency in modular programming, error handling, and intermediate data structures.
-- Topics: Modules, packages, error handling, advanced data structures (stacks, queues, linked lists), regular expressions, and working with libraries (e.g., math, datetime).
 - **Test 3**: Week 6, Saturday – Modules, packages, and error handling.
 - **Test 4**: Week 8, Saturday – Advanced data structures and library usage.
-
-#### Phase 3: Object-Oriented Programming (OOP) & Design (Weeks 9–12, 20 days)
-- **Goal**: Understand OOP principles and apply them to design robust programs.
-- Topics: Classes, objects, inheritance, polymorphism, encapsulation, design patterns, and basic testing (unit tests).
 - **Test 5**: Week 10, Saturday – OOP basics and inheritance.
 - **Test 6**: Week 12, Saturday – Advanced OOP and design patterns.
-
-#### Phase 4: Advanced Topics (Weeks 13–18, 30 days)
-- **Goal**: Explore advanced Python features and real-world applications.
-- Topics: Decorators, generators, iterators, context managers, concurrency (threading, multiprocessing, asyncio), web scraping, APIs, databases (SQL with SQLite), and data analysis (pandas, NumPy).
 - **Test 7**: Week 14, Saturday – Decorators, generators, and iterators.
 - **Test 8**: Week 16, Saturday – Concurrency and web scraping.
 - **Test 9**: Week 18, Saturday – Databases and data analysis.
-
-#### Phase 5: Professional Development & Projects (Weeks 19–24, 30 days)
-- **Goal**: Apply skills to real-world projects and explore career paths.
-- Topics: Building a portfolio project (e.g., web app, data pipeline, or automation script), version control (Git), deployment, CI/CD basics, Python frameworks (Flask/Django), and career guidance (software engineering, data science, DevOps).
 - **Test 10**: Week 20, Saturday – Project design and Git.
 - **Final Project & Test**: Week 24, Saturday – Complete a capstone project and comprehensive exam.
 
