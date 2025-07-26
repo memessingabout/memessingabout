@@ -34,8 +34,7 @@
 - **Homework**: Short coding tasks to reinforce the day’s learning (15–30 minutes).
 
 ---
-
-### Day 1: History of Pyton
+History of Pyton
 Python was created by **Guido van Rossum** in the late 1980s, with the first release (Python 0.9.0) in **February 1991**. The language was inspired by ABC, a language Guido worked on, but designed to be more practical and extensible. The name “Python” comes from Monty Python’s Flying Circus, reflecting Guido’s preference for a lighthearted name.
 
 **Key Milestones**:
