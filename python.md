@@ -1,7 +1,9 @@
 ### Python Learning Roadmap for Computer Science
 ### Roadmap Overview
 
-#### Phase 1: Foundations (Weeks 1–4, 20 days)
+| Phase | Topics | Duration |
+|_______|________|__________|
+| Phase 1: Foundations |  |(Weeks 1–4, 20 days)
 - **Goal**: Master Python syntax, basic constructs, and problem-solving.
 - Topics: History, setup, variables, data types, operators, control flow, loops, functions, basic data structures (lists, tuples, dictionaries, sets), and file I/O.
 - **Test 1**: Week 2, Saturday – Basics (syntax, control flow, functions).
