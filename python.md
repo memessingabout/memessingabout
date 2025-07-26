@@ -43,12 +43,7 @@
 
 ---
 
-### Day 1: History of Python
-
-#### Objective
-Understand the origins, philosophy, and evolution of Python, setting the context for why it’s a powerful and versatile language for modern programming.
-
-#### Lecture (10 minutes)
+### Day 1: History of Pyton
 Python was created by **Guido van Rossum** in the late 1980s, with the first release (Python 0.9.0) in **February 1991**. The language was inspired by ABC, a language Guido worked on, but designed to be more practical and extensible. The name “Python” comes from Monty Python’s Flying Circus, reflecting Guido’s preference for a lighthearted name.
 
 **Key Milestones**:
@@ -69,47 +64,7 @@ Run `import this` in Python to see the guiding principles, emphasizing readabili
 - **Community**: Vast ecosystem of libraries and active support.
 - **Career Relevance**: High demand in software engineering, data science, and DevOps.
 
-#### Code Examples & Practice (30 minutes)
-Let’s set up Python and explore its interactive environment:
-1. **Install Python**:
-   - Download Python 3.12 or later from [python.org](https://www.python.org/downloads/).
-   - Verify installation: Open a terminal and run `python --version` or `python3 --version`.
-2. **Interactive Shell**:
-   - Open a terminal and type `python3` to enter the interactive shell.
-   - Try basic commands:
-     ```python
-     print("Hello, World!")
-     import this  # Displays the Zen of Python
-     ```
-3. **First Script**:
-   - Create a file named `hello.py`:
-     ```python
-     # hello.py
-     print("Welcome to Python!")
-     name = input("Enter your name: ")
-     print(f"Hello, {name}! Python was created in 1991.")
-     ```
-   - Run it: `python3 hello.py`
-4. **Explore Versions**:
-   - Check Python’s version programmatically:
-     ```python
-     import sys
-     print(sys.version)
-     ```
-
-#### Hands-On Exercise (15 minutes)
-1. Write a Python script that:
-   - Prints a brief history of Python (e.g., “Python was created by Guido van Rossum in 1991.”).
-   - Asks the user for their favorite programming language.
-   - Responds with a message like: “Cool, you like [language]! Python’s simplicity makes it great for beginners and pros.”
-2. Save it as `python_history.py` and run it.
-3. Experiment with the interactive shell: Try basic arithmetic (e.g., `2 + 3`, `10 * 5`) and observe Python’s immediate feedback.
-
-#### Summary & Preview (5 minutes)
-Today, we covered Python’s history, its philosophy, and why it’s a top choice for developers. You set up Python and ran your first script. Tomorrow, we’ll dive into **setting up a development environment** (IDEs, virtual environments, and best practices).
-
-
-### Definitions
+#### Explicit and implicit
 
 - **Explicit**: Code clearly states what it does, with no hidden or assumed behavior. It prioritizes readability and transparency, making the intent obvious to anyone reading the code.
 - **Implicit**: Code relies on assumptions or hidden behaviors that are not immediately clear from reading it. This can make code harder to understand or maintain, as the reader must know the underlying rules or context.
