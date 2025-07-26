@@ -4,7 +4,7 @@
 
 | Phase | Topics | Duration |
 |-------|--------|----------|
-| Foundations | - History \n - setup, - variables, - data types, - operators, - control flow, - loops, - functions, - basic data structures (lists, tuples, dictionaries, sets), and - file I/O. | Weeks 1–4, 20 days |
+| Foundations | - History  - setup, - variables, - data types, - operators, - control flow, - loops, - functions, - basic data structures (lists, tuples, dictionaries, sets), and - file I/O. | Weeks 1–4, 20 days |
 | Intermediate Concepts | Modules, packages, error handling, advanced data structures (stacks, queues, linked lists), regular expressions, and working with libraries (e.g., math, datetime).  | Weeks 5–8, 20 days |
 | Object-Oriented Programming (OOP) & Design | Classes, objects, inheritance, polymorphism, encapsulation, design patterns, and basic testing (unit tests). | Weeks 9–12, 20 days |
 | Advanced Topics | Decorators, generators, iterators, context managers, concurrency (threading, multiprocessing, asyncio), web scraping, APIs, databases (SQL with SQLite), and data analysis (pandas, NumPy). | Weeks 13–18, 30 days |
@@ -146,45 +146,6 @@ However, **implicit behaviors** can be useful for:
 
 ---
 
-### Practical Exercise (15 minutes)
-To reinforce today’s learning, let’s apply explicit vs. implicit concepts to a small coding task:
-1. Write two versions of a Python script that calculates the square of a number provided by the user:
-   - **Explicit Version**: Use type hints, a docstring, and clear variable names.
-   - **Implicit Version**: Rely on Python’s dynamic typing and minimal documentation.
-2. Compare the two scripts and note which is easier to understand.
-
-**Example Solution**:
-- **Explicit**:
-  ```python
-  def square_number(number: float) -> float:
-      """Calculate the square of a given number."""
-      return number * number
-
-  user_input: str = input("Enter a number to square: ")
-  try:
-      num: float = float(user_input)
-      result: float = square_number(num)
-      print(f"The square of {num} is {result}")
-  except ValueError:
-      print("Please enter a valid number.")
-  ```
-
-- **Implicit**:
-  ```python
-  def square(n):
-      return n * n
-
-  x = input("Enter a number: ")
-  print(square(float(x)))
-  ```
-  Note: The implicit version assumes valid input and lacks error handling, making it less robust but shorter.
-
-**Task**: Run both scripts, test with valid (e.g., `5`) and invalid (e.g., `abc`) inputs, and reflect on which version is clearer and more reliable.
-
----
-
-### Summary & Tie to Python’s History
-The principle of “Explicit is better than implicit” emerged from Python’s design goal to prioritize readability, a key reason for its popularity since Guido van Rossum’s early work. Explicit code aligns with Python’s use in professional domains like data science and web development, where clarity is critical. Implicit code, while sometimes convenient, can lead to errors in complex projects.
 
 ### Day 2: Setting Up a Python Development Environment
 
