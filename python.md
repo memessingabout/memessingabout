@@ -8,7 +8,7 @@
 | Intermediate Concepts | - Modules <br> - packages <br> - error handling <br> - advanced data structures (stacks, queues, linked lists) <br> - regular expressions <br> - working with libraries (e.g., math, datetime) | Weeks 5–8, 20 days |
 | Object-Oriented Programming (OOP) & Design | - Classes <br> - objects <br> inheritance <br> ' polymorphism <br> - encapsulation <br> - design patterns <br> - basic testing (unit tests) | Weeks 9–12, 20 days |
 | Advanced Topics | - Decorators <br> - generators <br> - iterators <br> - context managers <br> - concurrency (threading, multiprocessing, asyncio) <br> - web scraping <br> - APIs <br> - databases (SQL with SQLite) <br> - data analysis (pandas, NumPy) | Weeks 13–18, 30 days |
-| Professional Development & Projects | - Building a portfolio project (e.g., web app, data pipeline, or automation script) <br> - version control (Git), deployment <br> - CI/CD basics <br> - Python frameworks (Flask/Django), and career guidance (software engineering, data science, DevOps)  | Weeks 19–24, 30 days |
+| Professional Development & Projects | - Building a portfolio project (e.g., web app, data pipeline, or automation script) <br> - version control (Git), deployment <br> - CI/CD basics <br> - Python frameworks (Flask/Django) <br> - career guidance (software engineering, data science, DevOps)  | Weeks 19–24, 30 days |
 
 
 #### Tests
