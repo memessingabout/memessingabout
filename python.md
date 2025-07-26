@@ -3,11 +3,11 @@
 
 | Phase | Topics | Duration |
 |_______|________|__________|
-| Phase 1: Foundations | - History, setup, variables, data types, operators, control flow, loops, functions, basic data structures (lists, tuples, dictionaries, sets), and file I/O. | Weeks 1–4, 20 days |
-| Phase 2: Intermediate Concepts | Modules, packages, error handling, advanced data structures (stacks, queues, linked lists), regular expressions, and working with libraries (e.g., math, datetime).  | Weeks 5–8, 20 days |
-| Phase 3: Object-Oriented Programming (OOP) & Design | Classes, objects, inheritance, polymorphism, encapsulation, design patterns, and basic testing (unit tests). | Weeks 9–12, 20 days |
-| Phase 4: Advanced Topics | Decorators, generators, iterators, context managers, concurrency (threading, multiprocessing, asyncio), web scraping, APIs, databases (SQL with SQLite), and data analysis (pandas, NumPy). | Weeks 13–18, 30 days |
-| Phase 5: Professional Development & Projects | Building a portfolio project (e.g., web app, data pipeline, or automation script), version control (Git), deployment, CI/CD basics, Python frameworks (Flask/Django), and career guidance (software engineering, data science, DevOps)  | Weeks 19–24, 30 days |
+| Foundations | History, setup, variables, data types, operators, control flow, loops, functions, basic data structures (lists, tuples, dictionaries, sets), and file I/O. | Weeks 1–4, 20 days |
+| Intermediate Concepts | Modules, packages, error handling, advanced data structures (stacks, queues, linked lists), regular expressions, and working with libraries (e.g., math, datetime).  | Weeks 5–8, 20 days |
+| Object-Oriented Programming (OOP) & Design | Classes, objects, inheritance, polymorphism, encapsulation, design patterns, and basic testing (unit tests). | Weeks 9–12, 20 days |
+| Advanced Topics | Decorators, generators, iterators, context managers, concurrency (threading, multiprocessing, asyncio), web scraping, APIs, databases (SQL with SQLite), and data analysis (pandas, NumPy). | Weeks 13–18, 30 days |
+| Professional Development & Projects | Building a portfolio project (e.g., web app, data pipeline, or automation script), version control (Git), deployment, CI/CD basics, Python frameworks (Flask/Django), and career guidance (software engineering, data science, DevOps)  | Weeks 19–24, 30 days |
 
 
 #### Tests
