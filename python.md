@@ -4,11 +4,11 @@
 
 | Phase | Topics | Duration |
 |-------|--------|----------|
-| Foundations | - History <br>  - setup <br> - variables <br> - data types <br> - operators <br> - control flow <br> - loops <br> - functions <br> - basic data structures (lists, tuples, dictionaries, sets) <br> - file I/O. | Weeks 1–4, 20 days |
-| Intermediate Concepts | Modules, packages, error handling, advanced data structures (stacks, queues, linked lists), regular expressions, and working with libraries (e.g., math, datetime).  | Weeks 5–8, 20 days |
-| Object-Oriented Programming (OOP) & Design | Classes, objects, inheritance, polymorphism, encapsulation, design patterns, and basic testing (unit tests). | Weeks 9–12, 20 days |
-| Advanced Topics | Decorators, generators, iterators, context managers, concurrency (threading, multiprocessing, asyncio), web scraping, APIs, databases (SQL with SQLite), and data analysis (pandas, NumPy). | Weeks 13–18, 30 days |
-| Professional Development & Projects | Building a portfolio project (e.g., web app, data pipeline, or automation script), version control (Git), deployment, CI/CD basics, Python frameworks (Flask/Django), and career guidance (software engineering, data science, DevOps)  | Weeks 19–24, 30 days |
+| Foundations | - History <br>  - setup <br> - variables <br> - data types <br> - operators <br> - control flow <br> - loops <br> - functions <br> - basic data structures (lists, tuples, dictionaries, sets) <br> - file I/O | Weeks 1–4, 20 days |
+| Intermediate Concepts | - Modules <br> - packages <br> - error handling <br> - advanced data structures (stacks, queues, linked lists) <br> - regular expressions <br> - working with libraries (e.g., math, datetime) | Weeks 5–8, 20 days |
+| Object-Oriented Programming (OOP) & Design | - Classes <br> - objects <br> inheritance <br> ' polymorphism <br> - encapsulation <br> - design patterns <br> - basic testing (unit tests) | Weeks 9–12, 20 days |
+| Advanced Topics | - Decorators <br> - generators <br> - iterators <br> - context managers <br> - concurrency (threading, multiprocessing, asyncio) <br> - web scraping <br> - APIs <br> - databases (SQL with SQLite) <br> - data analysis (pandas, NumPy) | Weeks 13–18, 30 days |
+| Professional Development & Projects | - Building a portfolio project (e.g., web app, data pipeline, or automation script) <br> - version control (Git), deployment <br> - CI/CD basics <br> - Python frameworks (Flask/Django), and career guidance (software engineering, data science, DevOps)  | Weeks 19–24, 30 days |
 
 
 #### Tests
