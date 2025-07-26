@@ -1,8 +1,9 @@
 ### Python Learning Roadmap for Computer Science
 ### Roadmap Overview
 
+
 | Phase | Topics | Duration |
-|_______|________|__________|
+|-------|--------|----------|
 | Foundations | History, setup, variables, data types, operators, control flow, loops, functions, basic data structures (lists, tuples, dictionaries, sets), and file I/O. | Weeks 1–4, 20 days |
 | Intermediate Concepts | Modules, packages, error handling, advanced data structures (stacks, queues, linked lists), regular expressions, and working with libraries (e.g., math, datetime).  | Weeks 5–8, 20 days |
 | Object-Oriented Programming (OOP) & Design | Classes, objects, inheritance, polymorphism, encapsulation, design patterns, and basic testing (unit tests). | Weeks 9–12, 20 days |
