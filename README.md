@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=F76D57&center=true&vCenter=true&width=850&height=50&lines=Hi+%F0%9F%91%8B%2C+I'm+Victor+Njuguna!;Cybersecurity+%7C+Red+Teamer+%7C+Full-Stack+Developer;Exploring+Agentic+AI%2C+Transformers+%26+NLP;I+Code%2C+Break%2C+Secure+and+Innovate+Things!;Welcome+to+n-cognto+GitHub+world+%F0%9F%94%A5" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=F76D57&center=true&vCenter=true&width=850&height=50&lines=Hi+%F0%9F%91%8B%2C+I'm+Victor+Njuguna!;Cybersecurity+%7C+Red+Teamer+%7C+Full-Stack+Developer;Exploring+Agentic+AI%2C+Transformers+%26+NLP;I+Code%2C+Break%2C+Secure+and+Innovate+Things!;Welcome+to+Memessingabout+GitHub+world+%F0%9F%94%A5" alt="Typing SVG" />
 </p>
 
 ---
@@ -140,6 +140,8 @@ I’m open to working on:
 ---
 
 [![](https://visitcount.itsvg.in/api?id=memessingabout&icon=0&color=0)](https://visitcount.itsvg.in)
+
+
 
 <!-- Crafted with passion using GPRM (https://gprm.itsvg.in) -->
 
