@@ -8,7 +8,7 @@
 
 I'm **Victor Njuguna** — a passionate **cybersecurity enthusiast**, **red team operator**, and **full-stack developer**. I explore real-world vulnerabilities, build secure systems, and constantly evolve in the tech space.
 
-> "I don't just build apps; I secure them."
+<!--"I don't just build apps; I secure them."
 
 ---
 
@@ -107,6 +107,7 @@ I’m open to working on:
 - Exploring LLMs and multimodal agents for autonomous decision making
 
 ---
+--> 
 
 ## 🌐 Connect With Me
 
