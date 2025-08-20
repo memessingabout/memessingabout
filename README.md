@@ -106,15 +106,16 @@ I’m open to working on:
 - Using **Hugging Face Transformers** for classification, summarization, Q&A
 - Exploring LLMs and multimodal agents for autonomous decision making
 
+--->
 ---
---> 
 
 ## 🌐 Connect With Me
 
+[![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/memessingabout)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/memessingabout)
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/memessingabout)
 [![Discord](https://img.shields.io/badge/Discord-7289DA.svg?logo=discord&logoColor=white)](https://discord.gg/memessingabout)
 [![TryHackMe](https://img.shields.io/badge/TryHackMe-212100.svg?logo=tryhackme&logoColor=white)](https://tryhackme.com/r/p/memessingabout)
+[![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:mynameisemillio@gmail.com) 
 
 ---
 
@@ -142,10 +143,9 @@ I’m open to working on:
 
 [![](https://visitcount.itsvg.in/api?id=memessingabout&icon=0&color=0)](https://visitcount.itsvg.in)
 
-
+---
 
 <!-- Crafted with passion using GPRM (https://gprm.itsvg.in) -->
-
 
 
 <!--
