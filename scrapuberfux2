@@ -1,0 +1,212 @@
+# scrape_uber_trips.py
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
+import time
+import pandas as pd
+import polyline
+import json
+
+# === CONFIG: EDIT THESE ===
+EMAIL = "your_email@example.com"      # CHANGE THIS
+PASSWORD = "your_password"            # CHANGE THIS
+OUTPUT_CSV = "uber_trips_full.csv"
+
+# === BRAVE PATH (WINDOWS) ===
+BRAVE_PATH = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
+
+# === SETUP BRAVE ===
+options = Options()
+options.binary_location = BRAVE_PATH
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--disable-blink-features=AutomationControlled")
+options.add_experimental_option("excludeSwitches", ["enable-automation"])
+options.add_experimental_option('useAutomationExtension', False)
+
+service = Service(ChromeDriverManager().install())
+print("Starting Brave...")
+driver = webdriver.Chrome(service=service, options=options)
+wait = WebDriverWait(driver, 20)
+
+# Hide webdriver
+driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+    "source": "Object.defineProperty(navigator, 'webdriver', {get: () => false});"
+})
+
+try:
+    print("Opening Uber login...")
+    driver.get("https://auth.uber.com/login/")
+    time.sleep(5)
+
+    # === ROBUST LOGIN: Try multiple selectors ===
+    email_selectors = [
+        "input[name='userIdentifier']",
+        "input[placeholder*='email']",
+        "input[type='email']",
+        "input#email",
+        "input[data-testid='email-input']"
+    ]
+
+    email_input = None
+    for sel in email_selectors:
+        try:
+            email_input = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, sel)))
+            print(f"Found email field: {sel}")
+            break
+        except:
+            continue
+
+    if not email_input:
+        print("Email field not found! Check login page manually.")
+        input("Press Enter after logging in manually...")
+    else:
+        email_input.clear()
+        email_input.send_keys(EMAIL)
+        driver.find_element(By.CSS_SELECTOR, "button[type='submit'], button[data-testid='next-button']").click()
+        time.sleep(4)
+
+        # Password
+        pwd_selectors = [
+            "input[name='password']",
+            "input[type='password']",
+            "input#password"
+        ]
+        pwd_input = None
+        for sel in pwd_selectors:
+            try:
+            pwd_input = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, sel)))
+            print(f"Found password field: {sel}")
+            break
+            except:
+            continue
+
+        if pwd_input:
+            pwd_input.clear()
+            pwd_input.send_keys(PASSWORD)
+            driver.find_element(By.CSS_SELECTOR, "button[type='submit'], button[data-testid='login-button']").click()
+            time.sleep(8)
+        else:
+            print("Password field not found! Enter manually.")
+            input("Press Enter after logging in...")
+
+    # === MANUAL 2FA SUPPORT ===
+    print("If 2FA appears, enter it in the browser. Waiting 30s...")
+    time.sleep(30)
+
+    # === GO TO EARNINGS ===
+    print("Going to Earnings Activities...")
+    driver.get("https://drivers.uber.com/earnings/activities")
+    time.sleep(8)
+
+    trips = []
+    page = 1
+
+    while True:
+        print(f"\nScraping page {page}...")
+        time.sleep(4)
+
+        # Wait for trip cards
+        rows = driver.find_elements(By.CSS_SELECTOR, "div[data-testid*='activity-row'], div[role='row']")
+        if not rows:
+            print("No rows found. Page may have changed.")
+            break
+
+        print(f"Found {len(rows)} trips")
+
+        for i, row in enumerate(rows):
+            try:
+                # Get text from row
+                texts = row.text.split('\n')
+                fare = distance = start_time = "N/A"
+                for t in texts:
+                    if '$' in t and len(t) < 15:
+                        fare = t
+                    elif 'mi' in t or 'km' in t:
+                        distance = t
+                    elif ':' in t and len(t) < 20:
+                        start_time = t
+
+                # Click details
+                detail_btn = row.find_element(By.CSS_SELECTOR, "button, a")
+                driver.execute_script("arguments[0].scrollIntoView();", detail_btn)
+                time.sleep(1)
+                driver.execute_script("arguments[0].click();", detail_btn)
+                time.sleep(4)
+
+                # === EXTRACT POLYLINE & COORDS ===
+                map_data = driver.execute_script("""
+                    // Try JSON-LD
+                    const ld = document.querySelector('script[type="application/ld+json"]');
+                    if (ld) {
+                        try { return JSON.parse(ld.innerText); } catch(e) {}
+                    }
+                    // Try Google Maps
+                    if (window.google?.maps && window.uberTripMap) {
+                        const path = window.uberTripMap.getPath().getArray();
+                        return { route: path.map(p => [p.lat(), p.lng()]) };
+                    }
+                    return null;
+                """)
+
+                polyline_str = ""
+                start_lat = start_lng = end_lat = end_lng = None
+
+                if map_data:
+                    if 'route' in map_data:
+                        polyline_str = polyline.encode(map_data['route'])
+                    if 'geo' in map_data:
+                        start_lat = map_data['geo'].get('latitude')
+                        start_lng = map_data['geo'].get('longitude')
+                    if 'dropoff' in map_data and 'geo' in map_data['dropoff']:
+                        end_lat = map_data['dropoff']['geo'].get('latitude')
+                        end_lng = map_data['dropoff']['geo'].get('longitude')
+
+                trips.append({
+                    "start_time": start_time,
+                    "fare": fare,
+                    "distance": distance,
+                    "start_lat": start_lat,
+                    "start_lng": start_lng,
+                    "end_lat": end_lat,
+                    "end_lng": end_lng,
+                    "encoded_polyline": polyline_str
+                })
+
+                print(f"  Trip {i+1}: {fare} | {distance}")
+
+                driver.back()
+                time.sleep(2)
+
+            except Exception as e:
+                print(f"  Row error: {e}")
+                driver.back()
+                time.sleep(1)
+
+        # Next page
+        try:
+            next_btn = driver.find_element(By.CSS_SELECTOR, "button[aria-label*='Next'], button[data-testid='next']")
+            if "disabled" in next_btn.get_attribute("class"):
+                break
+            driver.execute_script("arguments[0].click();", next_btn)
+            time.sleep(4)
+            page += 1
+        except:
+            break
+
+    # === SAVE ===
+    df = pd.DataFrame(trips)
+    if not df.empty:
+        df["route_points"] = df["encoded_polyline"].apply(lambda x: polyline.decode(x) if x else [])
+    df.to_csv(OUTPUT_CSV, index=False)
+    print(f"\nSUCCESS! {len(df)} trips saved to {OUTPUT_CSV}")
+
+except Exception as e:
+    print(f"Fatal error: {e}")
+    input("Press Enter to close...")
+finally:
+    driver.quit()
