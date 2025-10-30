@@ -1,0 +1,302 @@
+# scrape_uber_trips.py
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
+import time
+import pandas as pd
+import polyline
+import json
+from datetime import datetime
+
+# === CONFIG: EDIT THESE ===
+EMAIL = "your_email@example.com"      # CHANGE THIS
+PASSWORD = "your_password"            # CHANGE THIS
+OUTPUT_CSV = "uber_trips_full.csv"
+
+# === BRAVE PATH (WINDOWS) ===
+BRAVE_PATH = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
+
+# === SETUP BRAVE ===
+options = Options()
+options.binary_location = BRAVE_PATH
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--disable-blink-features=AutomationControlled")
+options.add_experimental_option("excludeSwitches", ["enable-automation"])
+options.add_experimental_option('useAutomationExtension', False)
+options.add_argument("--headless")  # Optional: Set to False to see browser
+
+service = Service(ChromeDriverManager().install())
+print("Starting Brave...")
+driver = webdriver.Chrome(service=service, options=options)
+wait = WebDriverWait(driver, 20)
+
+# Hide webdriver
+driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+    "source": "Object.defineProperty(navigator, 'webdriver', {get: () => false});"
+})
+
+try:
+    print("Opening Uber login...")
+    driver.get("https://auth.uber.com/login/")
+    time.sleep(5)
+
+    # === ROBUST LOGIN ===
+    email_selectors = [
+        "input[name='userIdentifier']",
+        "input[placeholder*='email']",
+        "input[type='email']",
+        "input#email",
+        "input[data-testid='email-input']"
+    ]
+
+    email_input = None
+    for sel in email_selectors:
+        try:
+            email_input = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, sel)))
+            print(f"Found email field: {sel}")
+            break
+        except:
+            continue
+
+    if not email_input:
+        print("Email field not found! Logging in manually...")
+        input("Open browser, log in, press Enter here...")
+    else:
+        email_input.clear()
+        email_input.send_keys(EMAIL)
+        driver.find_element(By.CSS_SELECTOR, "button[type='submit'], button[data-testid='next-button']").click()
+        time.sleep(4)
+
+        pwd_selectors = [
+            "input[name='password']",
+            "input[type='password']",
+            "input#password"
+        ]
+        pwd_input = None
+        for sel in pwd_selectors:
+            try:
+                pwd_input = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, sel)))
+                print(f"Found password field: {sel}")
+                break
+            except:
+                continue
+
+        if pwd_input:
+            pwd_input.clear()
+            pwd_input.send_keys(PASSWORD)
+            driver.find_element(By.CSS_SELECTOR, "button[type='submit'], button[data-testid='login-button']").click()
+            time.sleep(8)
+        else:
+            input("Enter password manually, press Enter...")
+
+    # 2FA wait
+    print("Handle 2FA if shown (30s wait)...")
+    time.sleep(30)
+
+    # === GO TO EARNINGS ===
+    print("Navigating to Earnings Activities...")
+    driver.get("https://drivers.uber.com/earnings/activities")
+    time.sleep(10)  # Extra wait for dynamic load
+
+    # DEBUG: Save page source & screenshot
+    with open("debug.html", "w", encoding="utf-8") as f:
+        f.write(driver.page_source)
+    driver.save_screenshot("debug.png")
+    print("DEBUG FILES SAVED: debug.html (open in browser) & debug.png (check layout)")
+
+    # Manual check
+    print("Check debug.png/html. If no trips, press Enter to continue...")
+    input()
+
+    trips = []
+    page = 1
+
+    while True:
+        print(f"\n--- Scraping page {page} ---")
+        time.sleep(5)  # Wait for JS
+
+        # === BROAD SELECTORS FOR ROWS (2025 Uber Patterns) ===
+        row_selectors = [
+            "div[data-testid*='activity-row']",
+            "div[data-testid*='trip-row']",
+            "div[class*='activity-item']",
+            "div[class*='earnings-row']",
+            "div[role='row']",
+            "tr[role='row']",
+            "div[class*='trip-card']",
+            ".activity-list > div",
+            "[data-qa='activity-item']",
+            "div:has(span:contains('$'))"  # Fallback: div with $ (fare)
+        ]
+
+        rows = []
+        for sel in row_selectors:
+            try:
+                if ":has" in sel:  # Special for :has (Selenium 4+)
+                    from selenium.webdriver.common.action_chains import ActionChains
+                    # Skip complex for now
+                    continue
+                elements = driver.find_elements(By.CSS_SELECTOR, sel)
+                if elements:
+                    rows = elements
+                    print(f"Found {len(rows)} rows with selector: {sel}")
+                    break
+            except Exception as e:
+                print(f"Selector {sel} failed: {e}")
+                continue
+
+        if not rows:
+            print("STILL NO ROWS! Check if you have trips. Trying table body...")
+            try:
+                tbody = driver.find_element(By.TAG_NAME, "tbody")
+                rows = tbody.find_elements(By.TAG_NAME, "tr")
+                print(f"Found {len(rows)} table rows")
+            except:
+                print("No table. Page may show 'No activities'.")
+                break
+
+        if not rows:
+            print("No trips detected. Exiting.")
+            break
+
+        print(f"Processing {len(rows)} trips...")
+
+        for i, row in enumerate(rows):
+            try:
+                # === EXTRACT TEXT (Robust) ===
+                row_text = row.text
+                lines = [line.strip() for line in row_text.split('\n') if line.strip()]
+                fare = next((l for l in lines if '$' in l), "N/A")
+                distance = next((l for l in lines if any(u in l for u in ['mi', 'km'])), "N/A")
+                start_time = next((l for l in lines if ':' in l and len(l) < 20), datetime.now().strftime("%H:%M"))
+
+                print(f"  Trip {i+1}: Fare={fare}, Dist={distance}, Time={start_time}")
+
+                # === CLICK DETAILS ===
+                detail_selectors = ["button", "a[href*='trip']", "[data-testid='view-details']", ".details-btn"]
+                detail_btn = None
+                for dsel in detail_selectors:
+                    try:
+                        detail_btn = row.find_element(By.CSS_SELECTOR, dsel)
+                        break
+                    except:
+                        continue
+
+                if detail_btn:
+                    driver.execute_script("arguments[0].scrollIntoView(true);", detail_btn)
+                    time.sleep(1)
+                    driver.execute_script("arguments[0].click();", detail_btn)
+                    time.sleep(5)  # Wait for details load
+                else:
+                    print("  No details button—skipping polyline.")
+                    trips.append({
+                        "start_time": start_time,
+                        "fare": fare,
+                        "distance": distance,
+                        "start_lat": None, "start_lng": None,
+                        "end_lat": None, "end_lng": None,
+                        "encoded_polyline": ""
+                    })
+                    continue
+
+                # === EXTRACT MAP DATA ===
+                map_script = """
+                    let data = null;
+                    // JSON-LD
+                    const ld = document.querySelector('script[type="application/ld+json"]');
+                    if (ld) {
+                        try {
+                            data = JSON.parse(ld.textContent);
+                        } catch(e) {}
+                    }
+                    // Global vars (Uber map)
+                    if (!data && window.tripData) {
+                        data = window.tripData;
+                    }
+                    if (!data && window.google && window.google.maps) {
+                        const path = document.querySelector('.gm-style') ? 
+                            Array.from(document.querySelectorAll('.gm-style .gm-cursor')).map(el => {
+                                const lat = el.dataset.lat; const lng = el.dataset.lng;
+                                return lat && lng ? [parseFloat(lat), parseFloat(lng)] : null;
+                            }).filter(Boolean) : null;
+                        if (path && path.length > 1) data = { route: path };
+                    }
+                    return data || { route: [] };
+                """
+                map_data = driver.execute_script(map_script)
+
+                polyline_str = ""
+                start_lat = start_lng = end_lat = end_lng = None
+
+                if isinstance(map_data, dict) and 'route' in map_data:
+                    route_points = map_data['route']
+                    if route_points:
+                        polyline_str = polyline.encode(route_points)
+                if map_data and '@type' in map_data and map_data['@type'] == 'Trip':
+                    start_lat = map_data.get('startLocation', {}).get('latitude')
+                    start_lng = map_data.get('startLocation', {}).get('longitude')
+                    end_lat = map_data.get('endLocation', {}).get('latitude')
+                    end_lng = map_data.get('endLocation', {}).get('longitude')
+
+                trips.append({
+                    "start_time": start_time,
+                    "fare": fare,
+                    "distance": distance,
+                    "start_lat": start_lat,
+                    "start_lng": start_lng,
+                    "end_lat": end_lat,
+                    "end_lng": end_lng,
+                    "encoded_polyline": polyline_str
+                })
+
+                # Back
+                driver.back()
+                time.sleep(3)
+
+            except Exception as e:
+                print(f"  Error on trip {i+1}: {str(e)[:100]}")
+                try:
+                    driver.back()
+                except:
+                    pass
+                time.sleep(2)
+
+        # === NEXT PAGE ===
+        next_selectors = ["button[aria-label*='Next']", "button[data-testid='next']", ".pagination-next"]
+        next_btn = None
+        for nsel in next_selectors:
+            try:
+                next_btn = driver.find_element(By.CSS_SELECTOR, nsel)
+                if "disabled" not in next_btn.get_attribute("class") and next_btn.is_enabled():
+                    break
+                next_btn = None
+            except:
+                continue
+
+        if not next_btn:
+            print("No next page.")
+            break
+
+        driver.execute_script("arguments[0].click();", next_btn)
+        time.sleep(5)
+        page += 1
+
+    # === SAVE ===
+    df = pd.DataFrame(trips)
+    if not df.empty:
+        df["route_points"] = df["encoded_polyline"].apply(lambda x: polyline.decode(x) if x else [])
+        df.to_csv(OUTPUT_CSV, index=False)
+        print(f"\nSUCCESS! {len(df)} trips saved to {OUTPUT_CSV}")
+    else:
+        print("0 trips. Check debug files & share selectors from inspect tool.")
+
+except Exception as e:
+    print(f"Fatal error: {e}")
+    input("Press Enter to close...")
+finally:
+    driver.quit()
