@@ -1,0 +1,80 @@
+PS C:\Users\jexi\Documents> & C:/Users/jexi/AppData/Local/Programs/Python/Python314/python.exe c:/Users/jexi/Documents/trips/scrape-uber.py
+00:50:40 | INFO     | === UBER TRIP SCRAPER STARTED ===
+00:51:04 | INFO     | Launching Brave browser with existing profile...
+00:51:33 | ERROR    | FATAL ERROR: Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+        0x7858c3
+        0x785904
+        0x59e76d
+        0x5d3902
+        0x5cff9a
+        0x618993
+        0x61830a
+        0x60c766
+        0x5ddac0
+        0x5dede4
+        0xa07974
+        0xa02bea
+        0x7ae5b4
+        0x79dd28
+        0x7a4d8d
+        0x78ded8
+        0x78e09c
+        0x777d1a
+        0x75ff00c9
+        0x772e7b4e
+        0x772e7b1e
+Traceback (most recent call last):
+  File "c:\Users\jexi\Documents\trips\scrape-uber.py", line 87, in <module>
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+  File "C:\Users\jexi\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 47, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        browser_name=DesiredCapabilities.CHROME["browserName"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        keep_alive=keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jexi\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 71, in __init__
+    super().__init__(command_executor=executor, options=options)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jexi\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 263, in __init__
+    self.start_session(capabilities)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\jexi\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 366, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jexi\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\jexi\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 233, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception        
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+        0x7858c3
+        0x785904
+        0x59e76d
+        0x5d3902
+        0x5cff9a
+        0x618993
+        0x61830a
+        0x60c766
+        0x5ddac0
+        0x5dede4
+        0xa07974
+        0xa02bea
+        0x7ae5b4
+        0x79dd28
+        0x7a4d8d
+        0x78ded8
+        0x78e09c
+        0x777d1a
+        0x75ff00c9
+        0x772e7b4e
+        0x772e7b1e
+
+00:51:33 | INFO     | === UBER SCRAPER SESSION ENDED ===
